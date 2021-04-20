@@ -1,14 +1,4 @@
 
-
-"""
-Course:  Training YOLO v3 for Objects Detection with Custom Data
-
-Section-1
-Quick Win - Step 2: Simple Object Detection by thresholding with mask
-File: detecting-object.py
-"""
-
-
 # Detecting Object with chosen Colour Mask
 #
 # Algorithm:

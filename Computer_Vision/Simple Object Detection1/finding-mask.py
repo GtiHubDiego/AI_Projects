@@ -1,14 +1,3 @@
-
-
-"""
-Course:  Training YOLO v3 for Objects Detection with Custom Data
-
-Section-1
-Quick Win - Step 1: Simple Object Detection by thresholding with mask
-File: finding-mask.py
-"""
-
-
 # Convenient way for choosing right Colour Mask to Detect needed Object
 #
 # Algorithm:
@@ -44,9 +33,6 @@ cv2.createTrackbar('max_blue', 'Track Bars', 0, 255, do_nothing)
 cv2.createTrackbar('max_green', 'Track Bars', 0, 255, do_nothing)
 cv2.createTrackbar('max_red', 'Track Bars', 0, 255, do_nothing)
 
-# while True:
-#     if cv2.waitKey(0):
-#         break
 
 # Reading image with OpenCV library
 # In this way image is opened already as numpy array
