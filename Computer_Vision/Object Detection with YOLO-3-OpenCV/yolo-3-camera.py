@@ -1,14 +1,5 @@
 
 
-"""
-Course:  Training YOLO v3 for Objects Detection with Custom Data
-
-Section-2
-Objects Detection in Real Time with YOLO v3 and OpenCV
-File: yolo-3-camera.py
-"""
-
-
 # Detecting Objects in Real Time with OpenCV deep learning library
 #
 # Algorithm:
