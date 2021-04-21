@@ -254,7 +254,7 @@ while True:
             # Getting current bounding box coordinates,
             # its width and height
             x_min, y_min = bounding_boxes[i][0], bounding_boxes[i][1]
-            box_width, box_height = bounding_boxes[i][2], bounding_boxes[i][3]
+            box_width, box_height ,= bounding_boxes[i][2], bounding_boxes[i][3]
 
             # Preparing colour for current bounding box
             # and converting from numpy array to list

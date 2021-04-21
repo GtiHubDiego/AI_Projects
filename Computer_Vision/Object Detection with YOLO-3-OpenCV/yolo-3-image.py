@@ -37,20 +37,20 @@ cv2.namedWindow('Original Image', cv2.WINDOW_NORMAL)
 # Pay attention! 'cv2.imshow' takes images in BGR format
 cv2.imshow('Original Image', image_BGR)
 # Waiting for any key being pressed
-cv2.waitKey(0)
+#cv2.waitKey(0)
 # Destroying opened window with name 'Original Image'
 cv2.destroyWindow('Original Image')
 
 # # Check point
 # # Showing image shape
-# print('Image shape:', image_BGR.shape)  # tuple of (511, 767, 3)
+print('Image shape:', image_BGR.shape)  # tuple of (511, 767, 3)
 
 # Getting spatial dimension of input image
 h, w = image_BGR.shape[:2]  # Slicing from tuple only first two elements
 
 # # Check point
 # # Showing height an width of image
-# print('Image height={0} and width={1}'.format(h, w))  # 511 767
+print('Image height={0} and width={1}'.format(h, w))  # 511 767
 
 """
 End of: 
@@ -73,8 +73,8 @@ blob = cv2.dnn.blobFromImage(image_BGR, 1 / 255.0, (416, 416),
                              swapRB=True, crop=False)
 
 # # Check point
-# print('Image shape:', image_BGR.shape)  # (511, 767, 3)
-# print('Blob shape:', blob.shape)  # (1, 3, 416, 416)
+print('Image shape:', image_BGR.shape)  # (511, 767, 3)
+print('Blob shape:', blob.shape)  # (1, 3, 416, 416)
 
 # # Check point
 # # Showing blob image in OpenCV window

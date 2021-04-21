@@ -320,12 +320,13 @@ while True:
         # to be used in the function VideoWriter
         fourcc = cv2.VideoWriter_fourcc(*'mp4v')
 
+
         # Writing current processed frame into the video file
         # Pay attention! If you're using Windows, yours path might looks like:
         # r'videos\result-traffic-cars.mp4'
         # or:
         # 'videos\\result-traffic-cars.mp4'
-        writer = cv2.VideoWriter('videos/result-traffic-cars.mp4', fourcc, 30,
+        writer = cv2.VideoWriter(r'videos\result-traffic-cars.mp4', fourcc, 30,
                                  (frame.shape[1], frame.shape[0]), True)
 
     # Write processed current frame to the file
