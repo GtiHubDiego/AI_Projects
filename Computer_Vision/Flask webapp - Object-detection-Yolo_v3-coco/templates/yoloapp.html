@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block bodyblock %}
+    <div class="container">
+        <br>
+        <h3 class="content">Object detection Application using Yolo v3</h3>
+
+        <p class="content">
+            Object detection : This app is driven by data and deep learning model.
+            As soon as user upload the image, in background it convert into blop object and
+            uses a pretrained Yolo algorithm trained previously in Darknet with Coco weights. All this functionality dumped in the flask app.
+        </p>
+        <br>
+        <img src="{{ url_for('static',filename='images/cerebro_perifericos.PNG') }}" alt="" width="500" height="170">
+        <a class="btn btn-outline-primary" href="{{ url_for('objectdetection') }}">Try it now</a>
+        <br>
+
+         
+        </div>
+           
+
+    </div>
+
+
+{% endblock  %}
