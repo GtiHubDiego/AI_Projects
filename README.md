@@ -7,10 +7,12 @@ Author
 👤 Diego Díaz García diegodiazgarciadev@gmail.com
 
 🤝 Contributing
+
 Contributions, issues and feature requests are welcome!
 Feel free to check issues page.
 
 Show your support
+
 Give a ⭐️ if this project helped you!
 
 📝 License
