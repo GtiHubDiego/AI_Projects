@@ -21,16 +21,23 @@ Start of:
 Reading input image
 """
 
+# Generating colours for representing every detected object
+# with function randint(low, high=None, size=None, dtype='l')
+colours = np.random.randint(0, 255, size=(100, 3), dtype='uint8')
 
-def yolo_v3_object_detection(path):
-    # Reading image with OpenCV library
-    # In this way image is opened already as numpy array
-    # WARNING! OpenCV by default reads images in BGR format
-    image_BGR = cv2.imread(path)
+
+def yolo_v3_object_detection(frame):
+
+    if isinstance(frame, str):
+        # Reading image with OpenCV library in case we are receiving an image path
+        # In this way image is opened already as numpy array
+        # WARNING! OpenCV by default reads images in BGR format
+        # image_BGR = cv2.imread(path)
+         frame = cv2.imread(frame)
 
 
     # Getting spatial dimension of input image
-    h, w = image_BGR.shape[:2]  # Slicing from tuple only first two elements
+    h, w = frame.shape[:2]  # Slicing from tuple only first two elements
 
 
     """
@@ -50,7 +57,7 @@ def yolo_v3_object_detection(path):
     # Resulted shape has number of images, number of channels, width and height
     # E.G.:
     # blob = cv2.dnn.blobFromImage(image, scalefactor=1.0, size, mean, swapRB=True)
-    blob = cv2.dnn.blobFromImage(image_BGR, 1 / 255.0, (416, 416),
+    blob = cv2.dnn.blobFromImage(frame, 1 / 255.0, (416, 416),
                                  swapRB=True, crop=False)
 
 
@@ -101,10 +108,6 @@ def yolo_v3_object_detection(path):
     # Setting threshold for filtering weak bounding boxes
     # with non-maximum suppression
     threshold = 0.3
-
-    # Generating colours for representing every detected object
-    # with function randint(low, high=None, size=None, dtype='l')
-    colours = np.random.randint(0, 255, size=(len(labels), 3), dtype='uint8')
 
 
     """
@@ -237,7 +240,7 @@ def yolo_v3_object_detection(path):
 
 
             # Drawing bounding box on the original image
-            cv2.rectangle(image_BGR, (x_min, y_min),
+            cv2.rectangle(frame, (x_min, y_min),
                           (x_min + box_width, y_min + box_height),
                           colour_box_current, 2)
 
@@ -246,7 +249,7 @@ def yolo_v3_object_detection(path):
                                                    confidences[i])
 
             # Putting text with label and confidence on the original image
-            cv2.putText(image_BGR, text_box_current, (x_min, y_min - 5),
+            cv2.putText(frame, text_box_current, (x_min, y_min - 5),
                         cv2.FONT_HERSHEY_COMPLEX, 0.7, colour_box_current, 2)
 
 
@@ -256,17 +259,9 @@ def yolo_v3_object_detection(path):
     Drawing bounding boxes and labels
     """
 
-    return image_BGR
-    # Showing Original Image with Detected Objects
-    # Giving name to the window with Original Image
-    # And specifying that window is resizable
-    #cv2.namedWindow('Detections', cv2.WINDOW_NORMAL)
-    # Pay attention! 'cv2.imshow' takes images in BGR format
-    #cv2.imshow('Detections', image_BGR)
-    # Waiting for any key being pressed
-    #cv2.waitKey(0)
-    # Destroying opened window with name 'Detections'
-    #cv2.destroyWindow('Detections')
+    # returning Original frame with Detected Objects
+    return frame
+
 
 
 """
