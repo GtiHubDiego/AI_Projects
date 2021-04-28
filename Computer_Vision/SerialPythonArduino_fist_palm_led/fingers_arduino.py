@@ -5,25 +5,15 @@ Created on Thu Jan 28 17:40:25 2021
 @author: yabo9
 """
 import cv2
-
-# Used for distance calculation later on
-
-
 from tensorflow.keras.models import load_model
-new_model = load_model('hand_100epochs.h5')
-
 from PIL import Image
 
-#parte de arduino
-
+#arduino
 from pyArduino import *
 import numpy as np
 
-
-
-
-   
-   
+#We load the model CNN
+new_model = load_model('./model/hand_100epochs.h5')
 
 # This background will be a global variable that we update through a few functions
 background = None
@@ -106,48 +96,29 @@ def resizeImage(imageName):
 
 from tensorflow.keras.preprocessing import image
 
-def count_fingers2(thresholded, hand_segment):
+def predicthand(thresholded, hand_segment):
     
     #{'Fist': 0, 'Palm': 1, 'Swing': 2}
-    
-     # Predict
-    #hand_file = cv2.imread('Temp.png')
-    
-    hand_file = 'Temp.png'
 
-    
+    hand_file = './data/Temp.png'
     hand_file = image.load_img(hand_file, target_size=(89, 100))
     hand_file = image.img_to_array(hand_file)
-    #hand_file = cv2.cvtColor(hand_file, cv2.COLOR_BGR2GRAY)
-    #hand_file = np.expand_dims(hand_file, axis=2)
     hand_file = np.expand_dims(hand_file, axis=0)
-
     hand_file = hand_file/255
     
     prediction_class = new_model.predict_classes(hand_file)
     prediction = new_model.predict(hand_file)
 
-    print("prediction_class : ", prediction_class)
-    print("prediction_class [0] : ", prediction_class[0])
-   # print("prediction : " + str(prediction))
-    
-    
-    
- #   gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
- #   gray_image = np.expand_dims(gray_image, axis=0)
-    
-    #prediction = new_model.predict([hand_file.reshape(89, 100, 1)])
-    
     # {'Fist': 0, 'Palm': 1, 'Swing': 2}
-    
 
+    #Detecion the type of gesture of the hand and sending this info to arduino depending on that
     if  np.amax(prediction) > 0.95:
     
-        if prediction_class[0]== 0:
+        if prediction_class[0] == 0:
             if arduino:
                 send_info(0)
             return "Fist"
-        elif prediction_class[0]== 1:
+        elif prediction_class[0] == 1:
             if arduino:
                 send_info(1)
             return "Palm"
@@ -160,7 +131,7 @@ def count_fingers2(thresholded, hand_segment):
 
 
 
-arduino = False
+arduino = True
 if arduino: 
     N = 1
     port = 'COM5' 
@@ -233,9 +204,9 @@ while True:
             cv2.drawContours(frame_copy, [hand_segment + (roi_right, roi_top)], -1, (255, 0, 0),1)
 
             # Count the fingers
-            cv2.imwrite('Temp.png', thresholded)
+            cv2.imwrite('./data/Temp.png', thresholded)
             #resizeImage('Temp.png')
-            fingers = count_fingers2(thresholded, hand_segment)
+            fingers = predicthand(thresholded, hand_segment)
 
             # Display count
             cv2.putText(frame_copy, str(fingers), (70, 45), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255), 2)
