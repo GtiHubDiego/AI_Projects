@@ -2,7 +2,7 @@
 """
 Created on Thu Jan 28 17:40:25 2021
 
-@author: yabo9
+@author: DiegoDiazGarciaDev
 """
 
 import cv2
@@ -12,13 +12,10 @@ import threading
 import numpy as np
 from tensorflow.keras.preprocessing import image
 
+#flag in case we are going to use our ESP8266 connected to the robot hand
 ESP8266 = True
 
-
-
-
-
-#We load the model CNN
+#We load the CNN model
 new_model = load_model('./model/hand_100epochs.h5')
 
 # This background will be a global variable that we update through a few functions
@@ -136,7 +133,7 @@ def predicthand(thresholded, hand_segment):
 
 #Servo initilizer
 if ESP8266:
-    pload = {"grado1": 0}
+    pload = {"degree1": 0}
     r = requests.post('http://192.168.0.161/moveServo', json=pload)
   
 def send_info(currentPrediction,lastPrediction):
@@ -155,7 +152,7 @@ def send_info(currentPrediction,lastPrediction):
 
 
             print(r.status_code)
-   
+
 url='http://192.168.0.162:8080/shot.jpg'
 #cam = cv2.VideoCapture(url)
 

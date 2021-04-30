@@ -1,9 +1,4 @@
-import numpy as np
 
-import cv2
-from tensorflow import keras
-
-import tensorflow
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 image_gen = ImageDataGenerator(rotation_range=30, # rotate the image 30 degrees
@@ -61,7 +56,7 @@ model.add(Flatten())
 model.add(Dense(256, activation='relu'))
 model.add(Dropout(0.4))
 
-# 256 NEURONS IN DENSE HIDDEN LAYER (YOU CAN CHANGE THIS NUMBER OF NEURONS)
+# 100 NEURONS IN DENSE HIDDEN LAYER (YOU CAN CHANGE THIS NUMBER OF NEURONS)
 model.add(Dense(100, activation='relu'))
 model.add(Dropout(0.4))
 

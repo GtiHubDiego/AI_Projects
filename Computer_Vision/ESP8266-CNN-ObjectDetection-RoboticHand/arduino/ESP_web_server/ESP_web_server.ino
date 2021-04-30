@@ -11,9 +11,6 @@ ESP8266WebServer server(80);    // Create a webserver object that listens for HT
 
 Servo servoMotor;
 
-void handleNotFound();
-void handleMoveServo();
-
 void setup(void){
   Serial.begin(115200);         // Start the Serial communication to send messages to the computer
   delay(10);
@@ -31,7 +28,13 @@ void setup(void){
   Serial.print("IP address:\t");
   Serial.println(WiFi.localIP());            // Send the IP address of the ESP8266 to the computer
 
+  initServer();
 
+}
+void initServer()
+{
+
+  server.on("/", handleRoot);
   server.on("/moveServo", handleMoveServo);
   server.onNotFound(handleNotFound);           // When a client requests an unknown URI (i.e. something other than "/"), call function "handleNotFound"
   server.begin();                            // Actually start the server
@@ -40,12 +43,15 @@ void setup(void){
   servoMotor.write(0);
 }
 
-
 void loop(void){
   server.handleClient();                     // Listen for HTTP requests from clients
 }
 
-
+// Funcion que se ejecutara en la URI '/'
+void handleRoot()
+{
+   server.send(200, "text/plain", "Hello World!");
+}
 
 void handleMoveServo() {                         
 
@@ -74,7 +80,9 @@ void handleMoveServo() {
   Serial.println("OK, servo moved");
   server.send(200,"OK, servo moved");
 
-}
+ }
+
+
 
 
 void handleNotFound(){
