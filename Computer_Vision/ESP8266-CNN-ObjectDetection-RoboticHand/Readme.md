@@ -27,3 +27,8 @@ Arduino side:
 5) We will create a simple web server on our ESP8266  (ESP_web_server.ino) which will receive a post request to a Rest services previously created, 
 that  will send a signal to the servomotor to move it, setting how many degrees will be moved, simulating the movement of a hand.
 
+
+
+![robotHand](https://user-images.githubusercontent.com/38459325/117171858-89fda580-adcb-11eb-8645-2c7ab5dc4eee.gif)
+
+
