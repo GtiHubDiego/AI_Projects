@@ -7,3 +7,8 @@ In this project we will be able to move the mouse (left, right) using the moveme
 which we will open a world of possibilities such a play games just using the movement of your eyes.
  
 ![Eye_tracking_min](https://user-images.githubusercontent.com/38459325/117963896-3d611f80-b321-11eb-8152-5efcb3bd580a.gif)
+
+Playing Bricks just using your eyes movement :
+
+![bricks-eyes](https://user-images.githubusercontent.com/38459325/118247980-15e69000-b4a4-11eb-8994-9e22b26ba6ad.gif)
+
