@@ -1,7 +1,7 @@
 import numpy as np
 import cv2
 
-
+ 
 # Giving name to the window with Track Bars
 # And specifying that window is resizable
 cv2.namedWindow('Track Bars', cv2.WINDOW_NORMAL)
