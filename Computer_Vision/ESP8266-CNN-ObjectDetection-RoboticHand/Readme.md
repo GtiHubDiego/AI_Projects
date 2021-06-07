@@ -1,4 +1,4 @@
-### Robotic hand moved using a CNN (trained with my own dataset) and an ESP8266 (Wifi chip)
+### Robotic hand moved using a CNN (Convolutional Neural Network trained with my own dataset) and an ESP8266 (Wifi chip)
 #### In this cool project we are using Deep Learning to move a robotic hand using an ES8266 Wifi microchip.
 
 #### Moving our hand (Fist, palm) displayed on a webcam, we will be able to move a robotic hand which is not connected directly to our computer.
