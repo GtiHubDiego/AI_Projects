@@ -1,5 +1,5 @@
 ## Color detection
-#### In this proyect I've created a Python program using OpenCV library that allows the detection of a specific color on a frame. (blue by default)
+#### In this proyect I've created a Python program using OpenCV library that allows the detection in real time of a specific color. (blue by default)
 
 
 ![Color detectionGif](https://user-images.githubusercontent.com/38459325/120000813-8082ea00-bfd3-11eb-8cc9-9ade589bc588.gif)
