@@ -1,4 +1,4 @@
-
+### Object detection (Yolo) in real time using Flask
 In this project, I have combined the knowledge learned in 2 different Udemy courses 
 ( "YOLO v3 for Objects Detection"  and "Face Recognition Web App with Machine Learning in Flask") 
 to create a simple webapp for Objects Detection in real time where we use the webcam and
