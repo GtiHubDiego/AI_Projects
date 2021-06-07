@@ -1,4 +1,6 @@
-In this cool project we are using Deep Learning to move a robotic hand using the Serial Port on an Arduino Uno
+### Robotic hand moved using a CNN and Arduino UNO (Serial port)
+
+In this cool project we are using Deep Learning to move a robotic hand using the Serial Port on an Arduino Uno.
 
 Moving our hand (Fist, palm) displayed on a webcam, we will be able to move a robotic hand which is connected to the computer via the Serial port of an Arduino Uno.
 
