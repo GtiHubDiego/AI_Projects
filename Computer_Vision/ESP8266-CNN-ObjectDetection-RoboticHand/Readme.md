@@ -1,12 +1,12 @@
+### Robotic hand moved using a CNN (trained with my own dataset) and an ESP8266 (Wifi chip)
+#### In this cool project we are using Deep Learning to move a robotic hand using an ES8266 Wifi microchip.
 
-In this cool project we are using Deep Learning to move a robotic hand using an ES8266 Wifi microchip.
+#### Moving our hand (Fist, palm) displayed on a webcam, we will be able to move a robotic hand which is not connected directly to our computer.
 
-Moving our hand (Fist, palm) displayed on a webcam, we will be able to move a robotic hand which is not connected directly to our computer.
-
-We will be implementing a window where we can display a webcam or any IP cam. This window will have a ROI where we will put our hand with different gestures. For simplicity we will start with a Palm and a Fist.
-When an object is detected on our ROI area, our python program will predict using our CNN model what kind of gesture is. 
-When our prediction is good enough, our Python program will create a POST request which will be sent  to a Rest service previously created  on the ESP8266 web server.
-Depending on the gesture, the ESP will send the order to a Servo so that it can move. The servo is connected to a Robotic hand, so if our gesture is a fist, the robotic hand will be closing and when the gesture is a palm, the robotic hand will be opening.
+We will be implementing a window where we can display a webcam or any IP cam. This window will have a ROI where we will be moving our hand with different gestures. For simplicity we will start with a Palm and a Fist.
+When an object is detected on our ROI area, our python program will predict, using our CNN model, what kind of gesture is. 
+When our prediction is good enough, our Python program will create a POST request which will be sent to a Rest service previously created on the ESP8266 web server.
+Depending on the gesture, the ESP8266 will send the order to a Servo so that it can move. The servo is connected to a Robotic hand, so if our gesture is a fist, the robotic hand will be closing and when the gesture is a palm, the robotic hand will be opening.
 
 There are several steps to build this project :
 
